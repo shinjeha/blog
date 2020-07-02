@@ -4,9 +4,80 @@
         <title>A Gridsome Minimal Blog</title>
         <link>https://underthetitle.github.io/blog</link>
         <description>Best blog feed evah.</description>
-        <lastBuildDate>Tue, 16 Jun 2020 01:35:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 Jul 2020 10:06:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Gridsome Feed Plugin</generator>
+        <item>
+            <title><![CDATA[AccessDeniedException]]></title>
+            <link>https://underthetitle.github.io/blog/access-denied-exception/</link>
+            <guid>https://underthetitle.github.io/blog/access-denied-exception/</guid>
+            <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+Elasticsearch 구동 시 에러가 발생했다.
+
+```console
+Exception in thread "main" java.nio.file.AccessDeniedException: /tmp/elasticsearch-~~~
+    at ...
+    at ...
+    at ...
+```
+
+말 그대로 권한 문제.
+
+크게 두가지 경우로 나뉘는거 같다.
+
+## 1. 파일 권한 문제
+
+```console
+Exception in thread "main" java.nio.file.AccessDeniedException: /home/elasticsearch/config/jvm.options
+    at ...
+    at ...
+    at ...
+```
+
+구체적인 파일명이 적혀 있으면 해당 파일의 권한이 Elasticsearch권한으로 되어있는지 살펴봐야 한다.
+
+*root권한으로는 사용이 불가능하다 한다.*
+
+## 2. 폴더 쓰기 권한 문제
+
+내 경우엔 폴더 권한 문제였다.
+
+```console
+Exception in thread "main" java.nio.file.AccessDeniedException: /tmp/elasticsearch-~~~
+    at ...
+    at java.nio.file.Files.createDirectory(Files.java:674)
+    at java.nio.file.TempFileHelper.create(TempFileHelper.java:136)
+    at java.nio.file.TempFileHelper.createTempDirectory(TempFileHelper.java:173)
+    at java.nio.file.Files.createTempDirectory(Files.java:991)
+    at ...
+```
+
+위와 같이 로그 중간에 파일을 생성하다가 생긴 에러라서 구글링 해보니 해당 폴더에서 쓰기 권한이 없어서 발생한 에러였던것.
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[trim script]]></title>
+            <link>https://underthetitle.github.io/blog/trim-script/</link>
+            <guid>https://underthetitle.github.io/blog/trim-script/</guid>
+            <pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+keyword필드의 앞, 뒤 공백을 잘라야 할 일이 생겨서 쿼리를 작성해보았다.
+
+```json
+GET test_index/_update_by_query
+
+{
+  "script": {
+    "inline": "ctx._source.str_field = ctx._source.str_field.trim();",
+    "lang": "painless"
+  }
+}
+
+"  문 자  열  "-> "문 자  열"
+```
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[terms aggs에서 script로 정규식 사용]]></title>
             <link>https://underthetitle.github.io/blog/terms-aggs-script/</link>
@@ -45,28 +116,6 @@ d, w따로 나누어서 갯수를 집계해야 할 일이 생겼다.
     }
   }
 }
-```
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[trim script]]></title>
-            <link>https://underthetitle.github.io/blog/trim-script/</link>
-            <guid>https://underthetitle.github.io/blog/trim-script/</guid>
-            <pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[
-keyword필드의 앞, 뒤 공백을 잘라야 할 일이 생겨서 쿼리를 작성해보았다.
-
-```json
-GET test_index/_update_by_query
-
-{
-  "script": {
-    "inline": "ctx._source.str_field = ctx._source.str_field.trim();",
-    "lang": "painless"
-  }
-}
-
-"  문 자  열  "-> "문 자  열"
 ```
 ]]></content:encoded>
         </item>
@@ -204,6 +253,50 @@ alias ll='ls -al'
 @TODO 사용자 계정으로도 만들어서 테스트해보자]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[현재 내 .vimrc설정]]></title>
+            <link>https://underthetitle.github.io/blog/vimrc/</link>
+            <guid>https://underthetitle.github.io/blog/vimrc/</guid>
+            <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+## .vimrc경로
+
+/home/사용자폴더/.vimrc
+
+## 현재 내 설정
+
+```vim
+" Syntax Highlighting
+if has("syntax")
+    syntax on
+endif
+
+" 자동 들여쓰기
+set autoindent
+set cindent
+
+set nu " 줄 번호
+
+set ts=4 " Tab 너비
+
+set shiftwidth=4 " 자동 인덴트할 때 너비
+
+" 마지막으로 수정된 곳에 커서를 위치함
+au BufReadPost *
+\ if line("'\") > 0 && line ("'\") <= line("$") |
+\ exe "norm g' \" |
+\ endif
+
+set laststatus=2 " 상태바 표시를 항상한다.
+```
+
+## 리눅스에서는 각 사용자 폴더에다가 하면 되지만
+
+### window에서 .vimrc를 생성
+
+**C:\Users\사용자폴더**에 생성
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[tomcat https 적용]]></title>
             <link>https://underthetitle.github.io/blog/tomcat-https/</link>
             <guid>https://underthetitle.github.io/blog/tomcat-https/</guid>
@@ -274,50 +367,6 @@ openssl pkcs12 -export -in server.crt -inkey server.key -out .keystore -name tom
 @TODO openssl패키지를 이용하여 개인키를 생성했는데 keytool로도 해보자
 
 @TODO http로 접속 시 https로 리다이렉트 되게 하는 법 알아보기
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[현재 내 .vimrc설정]]></title>
-            <link>https://underthetitle.github.io/blog/vimrc/</link>
-            <guid>https://underthetitle.github.io/blog/vimrc/</guid>
-            <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[
-## .vimrc경로
-
-/home/사용자폴더/.vimrc
-
-## 현재 내 설정
-
-```vim
-" Syntax Highlighting
-if has("syntax")
-    syntax on
-endif
-
-" 자동 들여쓰기
-set autoindent
-set cindent
-
-set nu " 줄 번호
-
-set ts=4 " Tab 너비
-
-set shiftwidth=4 " 자동 인덴트할 때 너비
-
-" 마지막으로 수정된 곳에 커서를 위치함
-au BufReadPost *
-\ if line("'\") > 0 && line ("'\") <= line("$") |
-\ exe "norm g' \" |
-\ endif
-
-set laststatus=2 " 상태바 표시를 항상한다.
-```
-
-## 리눅스에서는 각 사용자 폴더에다가 하면 되지만
-
-### window에서 .vimrc를 생성
-
-**C:\Users\사용자폴더**에 생성
 ]]></content:encoded>
         </item>
         <item>
