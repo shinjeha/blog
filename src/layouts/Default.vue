@@ -2,6 +2,7 @@
   <main class="layout" role="main">
     <Header :siteName="$page.metadata.siteName" />
     <slot/>
+	<Aside />
     <div class="footer">
     </div>
   </main>
@@ -9,10 +10,12 @@
 
 <script>
 import Header from "@/components/Header";
+import Aside from "@/components/Aside";
 
 export default {
   components: {
-    Header
+    Header,
+	Aside
   }
 }
 </script>

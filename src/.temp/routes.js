@@ -1,22 +1,25 @@
+const c1 = () => import(/* webpackChunkName: "page--node-modules-gridsome-app-pages-404-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\node_modules\\gridsome\\app\\pages\\404.vue")
+const c2 = () => import(/* webpackChunkName: "page--src-templates-post-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\templates\\Post.vue")
+const c3 = () => import(/* webpackChunkName: "page--src-pages-index-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\pages\\Index.vue")
+
 export default [
   {
     name: "404",
     path: "/404/",
-    component: () => import(/* webpackChunkName: "page--node-modules-gridsome-app-pages-404-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\node_modules\\gridsome\\app\\pages\\404.vue")
+    component: c1
   },
   {
     path: "/:title/",
-    component: () => import(/* webpackChunkName: "page--src-templates-post-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\templates\\Post.vue")
+    component: c2
   },
   {
     name: "home",
     path: "/",
-    component: () => import(/* webpackChunkName: "page--src-pages-index-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\pages\\Index.vue")
+    component: c3
   },
   {
     name: "*",
     path: "*",
-    component: () => import(/* webpackChunkName: "page--node-modules-gridsome-app-pages-404-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\node_modules\\gridsome\\app\\pages\\404.vue")
+    component: c1
   }
 ]
-
