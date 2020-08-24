@@ -2,6 +2,7 @@
 title: 'Too many dynamic script compilations within 에러'
 description: 'Elasticsearch 스크립트 에러'
 date: 2019-06-13
+category: 'elasticsearch'
 ---
 
 ## Too many dynamic script compilations within 에러
