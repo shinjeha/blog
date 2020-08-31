@@ -1,5 +1,5 @@
 ---
-title: "AccessDeniedException"
+title: "AccessDeniedException error"
 description: "Elasticsearch java.nio.file.AccessDeniedException에러 처리"
 date: 2020-07-02
 category: 'elasticsearch'

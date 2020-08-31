@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div class="article">
-      <h1 class="article-title">{{$page.post.title}}</h1>
+      <h1 class="article-title">
+        {{$page.post.description}}
+      </h1>
       <p class="article-date"> {{ $page.post.date}}</p>
       <p v-html="$page.post.content" />
     </div>
@@ -17,7 +19,6 @@ export default {
 };
 </script>
 
-
 <page-query>
 query Post ($path: String!) {
   metadata {
@@ -26,7 +27,9 @@ query Post ($path: String!) {
   }
    post: post (path: $path) {
     id
-    title
+    description
+    label
+    category
     content
     date (format: "YYYY년 MM월 DD일")
   }

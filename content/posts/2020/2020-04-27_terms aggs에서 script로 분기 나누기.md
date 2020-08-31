@@ -1,6 +1,6 @@
 ---
-title: "terms aggs에서 script로 정규식 사용"
-description: "Elasticsearch terms aggregation에서 정규식 사용"
+title: "using regexp script in terms aggs"
+description: "terms aggregation에서 정규식 사용"
 date: 2020-04-27
 category: 'elasticsearch'
 label: 'note'

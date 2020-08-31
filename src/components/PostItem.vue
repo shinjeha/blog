@@ -1,7 +1,8 @@
 <template>
   <div class="post-item">
     <span class="date">{{date}}</span>
-    <g-link :to="post.path" class="read">{{post.title}}</g-link>
+    <span class="category">[{{post.category}}]&nbsp;&nbsp;</span>
+    <g-link :to="post.path" class="read">{{post.description}}</g-link>
   </div>
 </template>
 
@@ -21,5 +22,9 @@ export default {
   margin-right:10px;
   min-width: 60px;
   display:inline-block;
+}
+
+.category {
+  color: coral;
 }
 </style>

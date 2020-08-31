@@ -15,7 +15,7 @@ import Aside from "@/components/Aside";
 export default {
   components: {
     Header,
-	Aside
+//    Aside
   }
 }
 </script>

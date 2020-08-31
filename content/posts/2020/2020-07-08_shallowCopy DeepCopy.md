@@ -1,5 +1,5 @@
 ---
-title: "javascript 얕은복사와 깊은복사"
+title: "javascript shallow copy deep copy"
 description: "javascript 얕은복사와 깊은복사"
 date: 2020-07-08
 category: 'javascript'

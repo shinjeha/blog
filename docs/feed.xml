@@ -4,13 +4,13 @@
         <title>A Gridsome Minimal Blog</title>
         <link>https://underthetitle.github.io/blog</link>
         <description>Best blog feed evah.</description>
-        <lastBuildDate>Mon, 31 Aug 2020 14:40:22 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 31 Aug 2020 15:23:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Gridsome Feed Plugin</generator>
         <item>
-            <title><![CDATA[javascript 얕은복사와 깊은복사]]></title>
-            <link>https://underthetitle.github.io/blog/javascript/</link>
-            <guid>https://underthetitle.github.io/blog/javascript/</guid>
+            <title><![CDATA[javascript shallow copy deep copy]]></title>
+            <link>https://underthetitle.github.io/blog/javascript-shallow-copy-deep-copy/</link>
+            <guid>https://underthetitle.github.io/blog/javascript-shallow-copy-deep-copy/</guid>
             <pubDate>Wed, 08 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## =을 이용한 복사
@@ -35,9 +35,9 @@ javascript에서는 기본 자료형(primitive type)을 복사할 때 값을 완
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[AccessDeniedException]]></title>
-            <link>https://underthetitle.github.io/blog/access-denied-exception/</link>
-            <guid>https://underthetitle.github.io/blog/access-denied-exception/</guid>
+            <title><![CDATA[AccessDeniedException error]]></title>
+            <link>https://underthetitle.github.io/blog/access-denied-exception-error/</link>
+            <guid>https://underthetitle.github.io/blog/access-denied-exception-error/</guid>
             <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 Elasticsearch 구동 시 에러가 발생했다.
@@ -84,9 +84,9 @@ Exception in thread "main" java.nio.file.AccessDeniedException: /tmp/elasticsear
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[terms aggs에서 script로 정규식 사용]]></title>
-            <link>https://underthetitle.github.io/blog/terms-aggs-script/</link>
-            <guid>https://underthetitle.github.io/blog/terms-aggs-script/</guid>
+            <title><![CDATA[using regexp script in terms aggs]]></title>
+            <link>https://underthetitle.github.io/blog/using-regexp-script-in-terms-aggs/</link>
+            <guid>https://underthetitle.github.io/blog/using-regexp-script-in-terms-aggs/</guid>
             <pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 데이터가 d_100, w_100 이런식으로 저장되어 있었는데,
@@ -147,9 +147,9 @@ GET test_index/_update_by_query
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Too many dynamic script compilations within 에러]]></title>
-            <link>https://underthetitle.github.io/blog/too-many-dynamic-script-compilations-within/</link>
-            <guid>https://underthetitle.github.io/blog/too-many-dynamic-script-compilations-within/</guid>
+            <title><![CDATA[Too many dynamic script compilations within error]]></title>
+            <link>https://underthetitle.github.io/blog/too-many-dynamic-script-compilations-within-error/</link>
+            <guid>https://underthetitle.github.io/blog/too-many-dynamic-script-compilations-within-error/</guid>
             <pubDate>Thu, 13 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## Too many dynamic script compilations within 에러
@@ -182,9 +182,9 @@ GET test_index/_update_by_query
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[생활코딩 npm 강의 정리]]></title>
-            <link>https://underthetitle.github.io/blog/npm/</link>
-            <guid>https://underthetitle.github.io/blog/npm/</guid>
+            <title><![CDATA[npm lecture note]]></title>
+            <link>https://underthetitle.github.io/blog/npm-lecture-note/</link>
+            <guid>https://underthetitle.github.io/blog/npm-lecture-note/</guid>
             <pubDate>Wed, 12 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## NPM(Node Packge Manager)
@@ -301,9 +301,9 @@ set laststatus=2 " 상태바 표시를 항상한다.
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[alias 저장하기]]></title>
-            <link>https://underthetitle.github.io/blog/alias/</link>
-            <guid>https://underthetitle.github.io/blog/alias/</guid>
+            <title><![CDATA[linux alias]]></title>
+            <link>https://underthetitle.github.io/blog/linux-alias/</link>
+            <guid>https://underthetitle.github.io/blog/linux-alias/</guid>
             <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## .bashrc쉘에 등록
@@ -324,9 +324,9 @@ alias ll='ls -al'
 @TODO 사용자 계정으로도 만들어서 테스트해보자]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[tomcat https 적용]]></title>
-            <link>https://underthetitle.github.io/blog/tomcat-https/</link>
-            <guid>https://underthetitle.github.io/blog/tomcat-https/</guid>
+            <title><![CDATA[tomcat https apply]]></title>
+            <link>https://underthetitle.github.io/blog/tomcat-https-apply/</link>
+            <guid>https://underthetitle.github.io/blog/tomcat-https-apply/</guid>
             <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## SSL인증서 발급
@@ -397,9 +397,9 @@ openssl pkcs12 -export -in server.crt -inkey server.key -out .keystore -name tom
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[git 계정 설정]]></title>
-            <link>https://underthetitle.github.io/blog/git/</link>
-            <guid>https://underthetitle.github.io/blog/git/</guid>
+            <title><![CDATA[git user setting]]></title>
+            <link>https://underthetitle.github.io/blog/git-user-setting/</link>
+            <guid>https://underthetitle.github.io/blog/git-user-setting/</guid>
             <pubDate>Mon, 10 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## 전역 설정

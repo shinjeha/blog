@@ -1,5 +1,5 @@
 ---
-title: 'tomcat https 적용'
+title: 'tomcat https apply'
 description: 'tomcat https 적용'
 date: 2019-06-11
 category: 'tomcat'

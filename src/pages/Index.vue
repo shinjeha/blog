@@ -45,6 +45,8 @@ query {
         title
         description
         date (format: "MM월 DD일 YYYY년")
+        category
+        label
         path
       }
     }
