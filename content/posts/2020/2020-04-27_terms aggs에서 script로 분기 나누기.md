@@ -2,6 +2,8 @@
 title: "terms aggs에서 script로 정규식 사용"
 description: "Elasticsearch terms aggregation에서 정규식 사용"
 date: 2020-04-27
+category: 'elasticsearch'
+label: 'note'
 ---
 
 데이터가 d_100, w_100 이런식으로 저장되어 있었는데,

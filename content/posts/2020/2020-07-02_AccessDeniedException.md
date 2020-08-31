@@ -2,6 +2,8 @@
 title: "AccessDeniedException"
 description: "Elasticsearch java.nio.file.AccessDeniedException에러 처리"
 date: 2020-07-02
+category: 'elasticsearch'
+label: 'error'
 ---
 
 Elasticsearch 구동 시 에러가 발생했다.

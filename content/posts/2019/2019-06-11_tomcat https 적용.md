@@ -2,6 +2,8 @@
 title: 'tomcat https 적용'
 description: 'tomcat https 적용'
 date: 2019-06-11
+category: 'tomcat'
+label: 'study'
 ---
 
 ## SSL인증서 발급

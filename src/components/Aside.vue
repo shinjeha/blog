@@ -4,6 +4,14 @@
 	</aside>
 </template>
 
+<script>
+import path from 'path';
+console.log(path);
+export default {
+	
+}
+</script>
+
 <style>
 	.aside {
 		width: 130px;
@@ -21,7 +29,7 @@
 		text-decoration: none;
 		font-size: 25px;
 		color: #2196F3;
-		disply: block;
+		display: block;
 	}
 
 	.aside a:hover {

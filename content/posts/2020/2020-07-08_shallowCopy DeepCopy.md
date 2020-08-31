@@ -2,6 +2,8 @@
 title: "javascript 얕은복사와 깊은복사"
 description: "javascript 얕은복사와 깊은복사"
 date: 2020-07-08
+category: 'javascript'
+label: 'study'
 ---
 
 ## =을 이용한 복사
