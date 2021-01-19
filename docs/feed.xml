@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>A Gridsome Minimal Blog</title>
-        <link>https://underthetitle.github.io/blog</link>
+        <link>https://shinjeha1993.github.io/blog</link>
         <description>Best blog feed evah.</description>
-        <lastBuildDate>Mon, 31 Aug 2020 15:23:50 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 19 Jan 2021 15:28:04 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Gridsome Feed Plugin</generator>
+        <atom:link href="https://shinjeha1993.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[javascript shallow copy deep copy]]></title>
-            <link>https://underthetitle.github.io/blog/javascript-shallow-copy-deep-copy/</link>
-            <guid>https://underthetitle.github.io/blog/javascript-shallow-copy-deep-copy/</guid>
+            <link>https://shinjeha1993.github.io/blog/javascript/javascript-shallow-copy-deep-copy/</link>
+            <guid>https://shinjeha1993.github.io/blog/javascript/javascript-shallow-copy-deep-copy/</guid>
             <pubDate>Wed, 08 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## =을 이용한 복사
@@ -36,8 +37,8 @@ javascript에서는 기본 자료형(primitive type)을 복사할 때 값을 완
         </item>
         <item>
             <title><![CDATA[AccessDeniedException error]]></title>
-            <link>https://underthetitle.github.io/blog/access-denied-exception-error/</link>
-            <guid>https://underthetitle.github.io/blog/access-denied-exception-error/</guid>
+            <link>https://shinjeha1993.github.io/blog/elasticsearch/access-denied-exception-error/</link>
+            <guid>https://shinjeha1993.github.io/blog/elasticsearch/access-denied-exception-error/</guid>
             <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 Elasticsearch 구동 시 에러가 발생했다.
@@ -85,8 +86,8 @@ Exception in thread "main" java.nio.file.AccessDeniedException: /tmp/elasticsear
         </item>
         <item>
             <title><![CDATA[using regexp script in terms aggs]]></title>
-            <link>https://underthetitle.github.io/blog/using-regexp-script-in-terms-aggs/</link>
-            <guid>https://underthetitle.github.io/blog/using-regexp-script-in-terms-aggs/</guid>
+            <link>https://shinjeha1993.github.io/blog/elasticsearch/using-regexp-script-in-terms-aggs/</link>
+            <guid>https://shinjeha1993.github.io/blog/elasticsearch/using-regexp-script-in-terms-aggs/</guid>
             <pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 데이터가 d_100, w_100 이런식으로 저장되어 있었는데,
@@ -126,8 +127,8 @@ d, w따로 나누어서 갯수를 집계해야 할 일이 생겼다.
         </item>
         <item>
             <title><![CDATA[trim script]]></title>
-            <link>https://underthetitle.github.io/blog/trim-script/</link>
-            <guid>https://underthetitle.github.io/blog/trim-script/</guid>
+            <link>https://shinjeha1993.github.io/blog/elasticsearch/trim-script/</link>
+            <guid>https://shinjeha1993.github.io/blog/elasticsearch/trim-script/</guid>
             <pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 keyword필드의 앞, 뒤 공백을 잘라야 할 일이 생겨서 쿼리를 작성해보았다.
@@ -148,8 +149,8 @@ GET test_index/_update_by_query
         </item>
         <item>
             <title><![CDATA[Too many dynamic script compilations within error]]></title>
-            <link>https://underthetitle.github.io/blog/too-many-dynamic-script-compilations-within-error/</link>
-            <guid>https://underthetitle.github.io/blog/too-many-dynamic-script-compilations-within-error/</guid>
+            <link>https://shinjeha1993.github.io/blog/elasticsearch/too-many-dynamic-script-compilations-within-error/</link>
+            <guid>https://shinjeha1993.github.io/blog/elasticsearch/too-many-dynamic-script-compilations-within-error/</guid>
             <pubDate>Thu, 13 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## Too many dynamic script compilations within 에러
@@ -183,8 +184,8 @@ GET test_index/_update_by_query
         </item>
         <item>
             <title><![CDATA[npm lecture note]]></title>
-            <link>https://underthetitle.github.io/blog/npm-lecture-note/</link>
-            <guid>https://underthetitle.github.io/blog/npm-lecture-note/</guid>
+            <link>https://shinjeha1993.github.io/blog/npm/npm-lecture-note/</link>
+            <guid>https://shinjeha1993.github.io/blog/npm/npm-lecture-note/</guid>
             <pubDate>Wed, 12 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## NPM(Node Packge Manager)
@@ -257,53 +258,9 @@ npm uninstall -g (패키지명)
 동영상 - <https://opentutorials.org/module/4044>]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[setting .vimrc]]></title>
-            <link>https://underthetitle.github.io/blog/setting-vimrc/</link>
-            <guid>https://underthetitle.github.io/blog/setting-vimrc/</guid>
-            <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[
-## .vimrc경로
-
-/home/사용자폴더/.vimrc
-
-## 현재 내 설정
-
-```vim
-" Syntax Highlighting
-if has("syntax")
-    syntax on
-endif
-
-" 자동 들여쓰기
-set autoindent
-set cindent
-
-set nu " 줄 번호
-
-set ts=4 " Tab 너비
-
-set shiftwidth=4 " 자동 인덴트할 때 너비
-
-" 마지막으로 수정된 곳에 커서를 위치함
-au BufReadPost *
-\ if line("'\") > 0 && line ("'\") <= line("$") |
-\ exe "norm g' \" |
-\ endif
-
-set laststatus=2 " 상태바 표시를 항상한다.
-```
-
-## 리눅스에서는 각 사용자 폴더에다가 하면 되지만
-
-### window에서 .vimrc를 생성
-
-**C:\Users\사용자폴더**에 생성
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[linux alias]]></title>
-            <link>https://underthetitle.github.io/blog/linux-alias/</link>
-            <guid>https://underthetitle.github.io/blog/linux-alias/</guid>
+            <link>https://shinjeha1993.github.io/blog/linux/linux-alias/</link>
+            <guid>https://shinjeha1993.github.io/blog/linux/linux-alias/</guid>
             <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## .bashrc쉘에 등록
@@ -325,8 +282,8 @@ alias ll='ls -al'
         </item>
         <item>
             <title><![CDATA[tomcat https apply]]></title>
-            <link>https://underthetitle.github.io/blog/tomcat-https-apply/</link>
-            <guid>https://underthetitle.github.io/blog/tomcat-https-apply/</guid>
+            <link>https://shinjeha1993.github.io/blog/tomcat/tomcat-https-apply/</link>
+            <guid>https://shinjeha1993.github.io/blog/tomcat/tomcat-https-apply/</guid>
             <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## SSL인증서 발급
@@ -397,9 +354,53 @@ openssl pkcs12 -export -in server.crt -inkey server.key -out .keystore -name tom
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[setting .vimrc]]></title>
+            <link>https://shinjeha1993.github.io/blog/vim/setting-vimrc/</link>
+            <guid>https://shinjeha1993.github.io/blog/vim/setting-vimrc/</guid>
+            <pubDate>Tue, 11 Jun 2019 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+## .vimrc경로
+
+/home/사용자폴더/.vimrc
+
+## 현재 내 설정
+
+```vim
+" Syntax Highlighting
+if has("syntax")
+    syntax on
+endif
+
+" 자동 들여쓰기
+set autoindent
+set cindent
+
+set nu " 줄 번호
+
+set ts=4 " Tab 너비
+
+set shiftwidth=4 " 자동 인덴트할 때 너비
+
+" 마지막으로 수정된 곳에 커서를 위치함
+au BufReadPost *
+\ if line("'\") > 0 && line ("'\") <= line("$") |
+\ exe "norm g' \" |
+\ endif
+
+set laststatus=2 " 상태바 표시를 항상한다.
+```
+
+## 리눅스에서는 각 사용자 폴더에다가 하면 되지만
+
+### window에서 .vimrc를 생성
+
+**C:\Users\사용자폴더**에 생성
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[git user setting]]></title>
-            <link>https://underthetitle.github.io/blog/git-user-setting/</link>
-            <guid>https://underthetitle.github.io/blog/git-user-setting/</guid>
+            <link>https://shinjeha1993.github.io/blog/git/git-user-setting/</link>
+            <guid>https://shinjeha1993.github.io/blog/git/git-user-setting/</guid>
             <pubDate>Mon, 10 Jun 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
 ## 전역 설정

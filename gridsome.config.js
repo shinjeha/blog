@@ -7,16 +7,16 @@
 module.exports = {
   outputDir: 'docs',
   siteName: '블로그 테스트',
-  siteUrl: 'https://underthetitle.github.io',
+  siteUrl: 'https://shinjeha1993.github.io',
   pathPrefix: '/blog',
-  siteDescription: '간단한 깃허브 블로그 만들어 보기',
+  siteDescription: '깃허브 블로그 만들어 보기',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
         path: 'content/posts/**/*.md',
         typeName: 'Post',
-        route: '/:title',
+        route: '/:category/:title',
         remark: {
           plugins: [
             ['@gridsome/remark-prismjs', {transformInlineCode: true}]
