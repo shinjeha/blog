@@ -2,11 +2,40 @@ export default {
   "touchiconMimeType": "image/png",
   "faviconMimeType": "image/png",
   "precomposed": false,
-  "touchicons": [],
+  "touchicons": [
+    {
+      "width": 76,
+      "src": "/assets/static/src/favicon.png?width=76&key=94874c0"
+    },
+    {
+      "width": 152,
+      "src": "/assets/static/src/favicon.png?width=152&key=94874c0"
+    },
+    {
+      "width": 120,
+      "src": "/assets/static/src/favicon.png?width=120&key=94874c0"
+    },
+    {
+      "width": 167,
+      "src": "/assets/static/src/favicon.png?width=167&key=94874c0"
+    },
+    {
+      "width": 180,
+      "src": "/assets/static/src/favicon.png?width=180&key=94874c0"
+    }
+  ],
   "favicons": [
     {
       "width": 16,
-      "src": "/blog/assets/static/favicon.ce0531f.28e1d3c4d4f5b055e1e08fb2023f3172.png"
+      "src": "/assets/static/src/favicon.png?width=16&key=fa03a2d"
+    },
+    {
+      "width": 32,
+      "src": "/assets/static/src/favicon.png?width=32&key=fa03a2d"
+    },
+    {
+      "width": 96,
+      "src": "/assets/static/src/favicon.png?width=96&key=fa03a2d"
     }
   ]
 }

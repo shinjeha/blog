@@ -5,61 +5,122 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  outputDir: 'docs',
-  siteName: '블로그 테스트',
-  siteUrl: 'https://shinjeha1993.github.io',
-  pathPrefix: '/blog',
-  siteDescription: '깃허브 블로그 만들어 보기',
+  siteUrl: "http://localhost:8080",
+  siteName: "Gridsome Flex Markdown Start",
+  siteDescription: "My Starter",
+  metadata: {
+    siteAuthor: "Me",
+    sitePublished: 2021,
+    pages: [
+      { title: "About me", link: "/pages/about/" },
+      {
+        title: "The theme",
+        link: "//github.com/phoenix741/gridsome-flex-markdown-starter",
+      },
+    ],
+    socials: [
+      { type: "github", link: "//github.com/phoenix741/" },
+      { type: "rss", link: "/feed.atom" },
+    ],
+    utterances: {
+      repo: "phoenix741/comments.myblog",
+      issueTerm: "title",
+      label: "discussion",
+    },
+  },
   plugins: [
     {
-      use: '@gridsome/source-filesystem',
+      use: "@gridsome/source-filesystem",
       options: {
-        path: 'content/posts/**/*.md',
-        typeName: 'Post',
-        route: '/:category/:title',
-        remark: {
-          plugins: [
-            ['@gridsome/remark-prismjs', {transformInlineCode: true}]
-          ]
-        }
-      }
+        baseDir: "content/posts",
+        path: "**/*.md",
+        typeName: "Post",
+        refs: {
+          tags: {
+            typeName: "Tag",
+            create: true,
+          },
+          category: {
+            typeName: "Category",
+            create: true,
+          },
+        },
+      },
     },
     {
-      use: '@gridsome/plugin-sitemap',
+      use: "@microflash/gridsome-plugin-feed",
       options: {
-        cacheTime: 600000, // default
-      }
-    },
-    {
-      use: 'gridsome-plugin-feed',
-      options: {
-        contentTypes: ['Post'],
+        contentTypes: ["Post"],
         feedOptions: {
-          title: 'A Gridsome Minimal Blog',
-          description: 'Best blog feed evah.'
+          title: "Gridsome Flex Markdown Start",
+          description: "My Starter",
         },
         rss: {
           enabled: true,
-          output: '/feed.xml'
+          output: "/feed.xml",
         },
         atom: {
-          enabled: false,
-          output: '/feed.atom'
+          enabled: true,
+          output: "/feed.atom",
         },
-        json: {
-          enabled: false,
-          output: '/feed.json'
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        baseDir: "content/pages",
+        path: "*.md",
+        typeName: "BlogPage",
+      },
+    },
+    {
+      use: "@gridsome/plugin-sitemap",
+      options: {
+        config: {
+          "/post/*": {
+            changefreq: "weekly",
+            priority: 0.5,
+          },
+          "/page/*": {
+            changefreq: "monthly",
+            priority: 0.7,
+          },
         },
-        maxItems: 25,
-        htmlFields: ['description', 'content'],
-        enforceTrailingSlashes: false,
-        filterNodes: (node) => true,
-        nodeToFeedItem: (node) => ({
-          title: node.title,
-          date: node.date || node.fields.date,
-          content: node.content
-        })
-      }
-    }
-  ]
-}
+      },
+    },
+  ],
+  templates: {
+    Post: "/post/:fileInfo__name",
+    BlogPage: "/pages/:fileInfo__name",
+    Tag: "/tag/:id",
+    Category: "/category/:title",
+  },
+  transformers: {
+    remark: {
+      plugins: [
+        ["@gridsome/remark-prismjs", { showLineNumbers: true }],
+        "remark-inline-links",
+        ["remark-toc", { heading: "sommaire" }],
+        "remark-attr",
+      ],
+      config: {
+        footnotes: true,
+      },
+    },
+  },
+  permalinks: {
+    slugify: {
+      use: "@sindresorhus/slugify",
+      options: {
+        decamelize: false,
+      },
+    },
+  },
+  css: {
+    loaderOptions: {
+      less: {
+        // options here will be passed to less-loader
+      },
+    },
+  },
+};

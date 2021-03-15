@@ -1,8 +1,8 @@
 export default {
   "trailingSlash": true,
-  "pathPrefix": "/blog",
-  "titleTemplate": "%s - 블로그 테스트",
-  "siteUrl": "https://shinjeha1993.github.io",
+  "pathPrefix": "",
+  "titleTemplate": "%s - Gridsome Flex Markdown Start",
+  "siteUrl": "http://localhost:8080",
   "version": "0.7.23",
   "catchLinks": true
 }

@@ -1,59 +1,53 @@
 <template>
   <Layout>
-    <section class="posts">
-      <PostList v-for="year in years" :key="year" :year="year" />
-    </section>
+    <PostSummary v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+
+    <Pager class="pagination" 
+      :info="$page.posts.pageInfo" 
+      linkClass="btn"
+      />
   </Layout>
 </template>
 
-<script>
-import PostList from "@/components/PostList";
-export default {
-  components: {
-    PostList,
-  },
-  metaInfo: {
-    title: "블로그 타이틀"
-  },
-  computed: {
-    years() {
-      const years = {};
-      const posts = this.$page.allPost.edges;
-      posts.map((post) => {
-        const year = post.node.date.split(" ")[2];
-        years[year] = "";
-      });
-      return Object.keys(years).sort((a, b) => {
-        return b - a;
-      });
-    }
-  }
-};
-</script>
-
 <page-query>
-query {
-  metadata {
-    siteName
-    siteDescription
-  }
-  allPost(filter: { date: { gte: "2020" }}) {
-    totalCount
+query ($page: Int) {
+  posts: allPost(perPage: 10, page: $page, filter: { published: { eq: true }}) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
         title
-        description
-        date (format: "MM월 DD일 YYYY년")
-        category
-        label
+        date (format: "D. MMMM YYYY")
+        timeToRead
         path
+        category {
+          id
+          title
+          path
+        }
+        tags {
+          id
+          title
+          path
+        }
+        excerpt
       }
     }
-
   }
 }
 </page-query>
 
-<style>
-</style>
+<script>
+import { Pager } from 'gridsome';
+import PostSummary from '~/components/PostSummary.vue'
+
+export default {
+  components: {
+    Pager,
+    PostSummary
+  }
+}
+</script>

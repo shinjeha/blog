@@ -1,93 +1,90 @@
 <template>
-  <main class="layout" role="main">
-    <Header :siteName="$page.metadata.siteName" />
-    <slot/>
-	<Aside />
-    <div class="footer">
-    </div>
-  </main>
+  <div>
+    <aside>
+      <div>
+        <Author></Author>
+
+        <nav>
+          <ul class="list">
+            <li v-for="page in $static.metadata.pages" :key="page.title">
+              <g-link :to="page.link">{{ page.title }}</g-link>
+            </li>
+          </ul>
+        </nav>
+
+        <ul class="social">
+          <li v-for="page in $static.metadata.socials" :key="page.type">
+            <g-link :class="`sc-${page.type}`" :to="page.link">
+              <i :class="`fa fa-${page.type}`"></i>
+            </g-link>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <main>
+      <nav>
+        <g-link to="/">Home</g-link>
+        <g-link to="/archives">Archives</g-link>
+        <g-link to="/categories">Categories</g-link>
+        <g-link to="/tags">Tags</g-link>
+        <g-link to="/feed.atom">ATOM</g-link>
+      </nav>
+
+      <slot />
+
+      <footer>
+        <p>
+          &copy; {{ $static.metadata.siteAuthor }}
+          {{ $static.metadata.sitePublished }}-{{ todayYear }}
+        </p>
+        <p>
+          Powered by <g-link to="https://gridsome.org/">Gridsome</g-link> -
+          <g-link
+            to="https://github.com/phoenix741/gridsome-flex-markdown-starter"
+            >Flex</g-link
+          >
+          theme by
+          <g-link to="https://shadoware.org">Ulrich Vandenhekke</g-link>
+        </p>
+        <p>
+          Fork of
+          <g-link to="https://github.com/alexandrevicenzi/flex">Flex</g-link>
+          theme by
+          <g-link to="http://alexandrevicenzi.com">Alexandre Vicenzi</g-link>
+        </p>
+      </footer>
+    </main>
+  </div>
 </template>
 
-<script>
-import Header from "@/components/Header";
-import Aside from "@/components/Aside";
-
-export default {
-  components: {
-    Header,
-//    Aside
-  }
-}
-</script>
-
-<style lang="scss">
-:root {
-    --app-background-color: #FFFFFF;
-    --app-font-color: black;
-}
-
-[theme="dark"] {
-    --app-background-color: #091A28;
-    --app-font-color: white;
-}
-
-[theme="sepia"] {
-    --app-background-color: #F1E7D0;
-    --app-font-color:#433422;
-}
-
-body {
-  background-color: var(--app-background-color);
-  color: var(--app-font-color);
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.footer {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:60px;
-  font-size:.8em;
-}
-
-.footer a {
-  color:gray;
-}
-
-.footer-links a {
-  margin:0 4px;
-}
-
-a {
-  border-bottom: 1px solid currentColor;
-  color: rgb(32, 201, 151);
-  text-decoration: none;
-
-}
-a:hover {
-  border-bottom-color: currentColor;
-  color: #686868;
-}
-
-@media only screen and (max-width: 500px) {
-  .footer {
-    flex-direction: column;
-  }
-
-  .header {
-    h1 {
-      font-size:1em;
+<static-query>
+query {
+  metadata {
+    siteAuthor
+    sitePublished
+    pages {
+      title
+      link
+    }
+    socials {
+      type
+      link
     }
   }
 }
-</style>
+</static-query>
+
+<script>
+import Author from "~/components/Author.vue";
+
+export default {
+  components: {
+    Author,
+  },
+  computed: {
+    todayYear() {
+      return new Date().getFullYear();
+    },
+  },
+};
+</script>
