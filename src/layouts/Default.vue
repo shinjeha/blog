@@ -2,7 +2,7 @@
   <div>
     <aside>
       <div>
-        <Author></Author>
+        <SideBar></SideBar>
 
         <nav>
           <ul class="list">
@@ -75,11 +75,11 @@ query {
 </static-query>
 
 <script>
-import Author from "~/components/Author.vue";
+import SideBar from "~/components/SideBar.vue";
 
 export default {
   components: {
-    Author,
+    SideBar,
   },
   computed: {
     todayYear() {

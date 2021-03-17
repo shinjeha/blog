@@ -6,8 +6,8 @@
 
 module.exports = {
   siteUrl: "http://localhost:8080",
-  siteName: "Gridsome Flex Markdown Start",
-  siteDescription: "My Starter",
+  siteName: "블로그",
+  siteDescription: "이것저것 기록",
   metadata: {
     siteAuthor: "Me",
     sitePublished: 2021,

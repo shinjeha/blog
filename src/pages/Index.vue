@@ -11,7 +11,7 @@
 
 <page-query>
 query ($page: Int) {
-  posts: allPost(perPage: 10, page: $page, filter: { published: { eq: true }}) @paginate {
+  posts: allPost(perPage: 10, page: $page, filter: { }) @paginate {
     pageInfo {
       totalPages
       currentPage
