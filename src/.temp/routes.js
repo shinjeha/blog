@@ -1,12 +1,12 @@
-const c1 = () => import(/* webpackChunkName: "page--src-templates-tag-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\templates\\Tag.vue")
-const c2 = () => import(/* webpackChunkName: "page--src-templates-blog-page-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\templates\\BlogPage.vue")
-const c3 = () => import(/* webpackChunkName: "page--src-templates-post-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\templates\\Post.vue")
-const c4 = () => import(/* webpackChunkName: "page--src-templates-category-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\templates\\Category.vue")
-const c5 = () => import(/* webpackChunkName: "page--src-pages-tags-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\pages\\Tags.vue")
-const c6 = () => import(/* webpackChunkName: "page--src-pages-categories-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\pages\\Categories.vue")
-const c7 = () => import(/* webpackChunkName: "page--src-pages-archives-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\pages\\Archives.vue")
-const c8 = () => import(/* webpackChunkName: "page--src-pages-404-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\pages\\404.vue")
-const c9 = () => import(/* webpackChunkName: "page--src-pages-index-vue" */ "C:\\Users\\cocad\\Documents\\git\\blog\\src\\pages\\Index.vue")
+const c1 = () => import(/* webpackChunkName: "page--src-templates-tag-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\templates\\Tag.vue")
+const c2 = () => import(/* webpackChunkName: "page--src-templates-blog-page-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\templates\\BlogPage.vue")
+const c3 = () => import(/* webpackChunkName: "page--src-templates-post-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\templates\\Post.vue")
+const c4 = () => import(/* webpackChunkName: "page--src-templates-category-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\templates\\Category.vue")
+const c5 = () => import(/* webpackChunkName: "page--src-pages-tags-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\pages\\Tags.vue")
+const c6 = () => import(/* webpackChunkName: "page--src-pages-categories-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\pages\\Categories.vue")
+const c7 = () => import(/* webpackChunkName: "page--src-pages-archives-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\pages\\Archives.vue")
+const c8 = () => import(/* webpackChunkName: "page--src-pages-404-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\pages\\404.vue")
+const c9 = () => import(/* webpackChunkName: "page--src-pages-index-vue" */ "C:\\Users\\nct\\Documents\\git\\blog\\src\\pages\\Index.vue")
 
 export default [
   {
