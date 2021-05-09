@@ -5,6 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
+  outputDir: "docs",
   siteUrl: "http://localhost:8080",
   siteName: "블로그",
   siteDescription: "이것저것 기록",

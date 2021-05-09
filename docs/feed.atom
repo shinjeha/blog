@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://localhost:8080/</id>
     <title>Gridsome Flex Markdown Start</title>
-    <updated>2021-05-09T07:16:25.300Z</updated>
+    <updated>2021-05-09T07:33:45.485Z</updated>
     <generator>Gridsome Feed Plugin</generator>
     <link rel="alternate" href="http://localhost:8080/"/>
     <link rel="self" href="http://localhost:8080/feed.atom"/>

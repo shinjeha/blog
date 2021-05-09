@@ -4,7 +4,7 @@
         <title>Gridsome Flex Markdown Start</title>
         <link>http://localhost:8080/</link>
         <description>My Starter</description>
-        <lastBuildDate>Sun, 09 May 2021 07:16:25 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 May 2021 07:33:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Gridsome Feed Plugin</generator>
         <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
