@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://localhost:8080/</id>
+    <title>Gridsome Flex Markdown Start</title>
+    <updated>2021-05-09T07:16:25.300Z</updated>
+    <generator>Gridsome Feed Plugin</generator>
+    <link rel="alternate" href="http://localhost:8080/"/>
+    <link rel="self" href="http://localhost:8080/feed.atom"/>
+    <subtitle>My Starter</subtitle>
+    <entry>
+        <title type="html"><![CDATA[_id wildcard 검색]]></title>
+        <id>http://localhost:8080/post/2021-03-31-id-wildcard/</id>
+        <link href="http://localhost:8080/post/2021-03-31-id-wildcard/"/>
+        <updated>2021-03-31T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+# _id wildcard로 검색
+
+그냥 wildcard 쿼리로 검색하면 에러가 발생하므로 script를 이용한다.
+
+```json
+{
+  "query": {
+    "script": {
+      "script": "doc['_id'][0].indexOf('test_') > -1"
+	}
+  }
+}
+```
+
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[javascript shallow copy deep copy]]></title>
+        <id>http://localhost:8080/post/2020-07-08-shallowcopy-deepcopy/</id>
+        <link href="http://localhost:8080/post/2020-07-08-shallowcopy-deepcopy/"/>
+        <updated>2020-07-08T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+## =을 이용한 복사
+
+javascript에서는 기본 자료형(primitive type)을 복사할 때 값을 완전히 복사한다.
+
+-> 자료형의 값 복사는 깊은 복사
+
+반면 객체는 객체의 메모리 주소만 복사한다. (참조 복사)
+
+-> 객체의 값 복사는 얕은 복사
+
+## 얕은복사 (shallow copy)
+
+ = 참조 복사, call by reference
+
+## 깊은복사 (deep copy)
+
+ = 값 복사, call by value
+
+※ *angularjs에서는 angular.copy를 하면 Deep copy가 된다.*
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AccessDeniedException error]]></title>
+        <id>http://localhost:8080/post/2020-07-02-accessdeniedexception/</id>
+        <link href="http://localhost:8080/post/2020-07-02-accessdeniedexception/"/>
+        <updated>2020-07-02T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+Elasticsearch 구동 시 에러가 발생했다.
+
+```console
+Exception in thread "main" java.nio.file.AccessDeniedException: /tmp/elasticsearch-~~~
+    at ...
+    at ...
+    at ...
+```
+
+말 그대로 권한 문제.
+
+크게 두가지 경우로 나뉘는거 같다.
+
+## 1. 파일 권한 문제
+
+```console
+Exception in thread "main" java.nio.file.AccessDeniedException: /home/elasticsearch/config/jvm.options
+    at ...
+    at ...
+    at ...
+```
+
+구체적인 파일명이 적혀 있으면 해당 파일의 권한이 Elasticsearch권한으로 되어있는지 살펴봐야 한다.
+
+*root권한으로는 사용이 불가능하다 한다.*
+
+## 2. 폴더 쓰기 권한 문제
+
+내 경우엔 폴더 권한 문제였다.
+
+```console
+Exception in thread "main" java.nio.file.AccessDeniedException: /tmp/elasticsearch-~~~
+    at ...
+    at java.nio.file.Files.createDirectory(Files.java:674)
+    at java.nio.file.TempFileHelper.create(TempFileHelper.java:136)
+    at java.nio.file.TempFileHelper.createTempDirectory(TempFileHelper.java:173)
+    at java.nio.file.Files.createTempDirectory(Files.java:991)
+    at ...
+```
+
+위와 같이 로그 중간에 파일을 생성하다가 생긴 에러라서 구글링 해보니 해당 폴더에서 쓰기 권한이 없어서 발생한 에러였던것.
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[using regexp script in terms aggs]]></title>
+        <id>http://localhost:8080/post/2020-04-27-terms-aggs-script/</id>
+        <link href="http://localhost:8080/post/2020-04-27-terms-aggs-script/"/>
+        <updated>2020-04-27T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+데이터가 d_100, w_100 이런식으로 저장되어 있었는데,
+
+d, w따로 나누어서 갯수를 집계해야 할 일이 생겼다.
+
+어떻게 처리할까 생각하다가 정규식을 이용해서 분리했다.
+
+```json
+{
+  "size": 0,
+  "aggs": {
+    "office": {
+      "terms": {
+        "field": "office_field"
+      },
+      "aggs": {
+        "danger": {
+          "terms": {
+            "script": "String aaa = /_/.split(doc.value_list[0])[0]; if (aaa == 'd') {doc['grp_nm'].value}",
+            "size": 20
+          }
+        },
+      "aggs": {
+        "warning": {
+          "terms": {
+            "script": "String aaa = /_/.split(doc.value_list[0])[0]; if (aaa == 'w') {doc['grp_nm'].value}",
+            "size": 20
+          }
+        }
+      }
+    }
+  }
+}
+```
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[trim script]]></title>
+        <id>http://localhost:8080/post/2020-04-27-trim-script/</id>
+        <link href="http://localhost:8080/post/2020-04-27-trim-script/"/>
+        <updated>2020-04-27T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+keyword필드의 앞, 뒤 공백을 잘라야 할 일이 생겨서 쿼리를 작성해보았다.
+
+```json
+GET test_index/_update_by_query
+
+{
+  "script": {
+    "inline": "ctx._source.str_field = ctx._source.str_field.trim();",
+    "lang": "painless"
+  }
+}
+
+"  문 자  열  "-> "문 자  열"
+```
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Too many dynamic script compilations within error]]></title>
+        <id>http://localhost:8080/post/2019-06-13-too-many-dynamic-script-compilations-within/</id>
+        <link href="http://localhost:8080/post/2019-06-13-too-many-dynamic-script-compilations-within/"/>
+        <updated>2019-06-13T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+## Too many dynamic script compilations within 에러
+
+```json
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "circuit_breaking_exception",
+        "reason": "[script] Too many dynamic script compilations within, max: [75/5m]; please use indexed, or scripts with parameters instead; this limit can be changed by the [script.max_compilations_rate] setting",
+        "bytes_wanted": 0,
+        "bytes_limit": 0
+      }
+    ]
+    ...
+  "status": 400
+}
+```
+
+검색 결과 일정시간안에 너무 많은 스크립트가 발생해서 생기는 오류.
+
+75/5m 으로 세팅되어 있는데 5분에 75개까지의 스크립트를 실행 할 수 있다는 의미.
+
+공식문서를 찾아보니 스크립트를 사용할 떄 가급적 파라미터를 사용하기를 권장한다.
+
+- <https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-scripting-using.html#prefer-params>
+
+@TODO 스크립트 캐시 확인
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[npm lecture note]]></title>
+        <id>http://localhost:8080/post/2019-06-12-npm/</id>
+        <link href="http://localhost:8080/post/2019-06-12-npm/"/>
+        <updated>2019-06-12T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+## NPM(Node Packge Manager)
+
+스마트폰에서 어플을 다운로드 받을 때 플레이스토어에서 다운로드 받듯이, 노드JS에서 동작하는 여러 프로그램(패키지)을 관리해주는게 npm이다.
+
+## npm 설치 및 실행
+
+nodejs를 설치하면 자동으로 설치가 된다.
+
+### 실행
+
+```bash
+# 노드, npm 버전 확인
+node -v
+npm -v
+```
+
+## 패키지 검색과 설치 그리고 실행
+
+### 검색
+
+<https://www.npmjs.com/> 에서 원하는 패키지를 찾을 수 있다.
+
+npm에서 설치하는 프로그램은 2가지 종류
+
+- 독립적으로 실행되는 커맨드라인 프로그램
+- 부품으로서 사용되어 다른 소프트웨어의 일부로 사용되는 프로그램
+
+### 설치
+
+```bash
+npm install (설치할 패키지)
+# 엔터를 치면 현재 위치하고 있는 디렉토리에 패키지가 다운로드 된다.
+# -> 내가 지금 만들려고 하는 프로그램의 부품으로 쓰겠다.
+# 만약 이 컴퓨터 어디에서 실행시키건 동작하는 전역적인, 독립적인 프로그램으로 다운로드 하려면 -g를 붙여준다. (로컬은 -l인데 어차피 안 붙여주면 로컬)
+
+npm install -g (설치할 패키지)
+# 리눅스에서는 관리자 계정으로 설치해야 한다.(sudo npm install -g)
+```
+
+## 패키지의 목록 보기와 업데이트 그리고 삭제
+
+### 목록 조회
+
+```bash
+# 현재 머물고 있는 디렉토리에 있는 패키지 조회
+npm list
+
+# 전역 패키지 조회
+npm list -g
+
+# 전역 패키지 조회 하면 각 패키지마다 사용되고있는 패키지 정보가 표시되는데 자신이 설치한 패키지만 보고 싶다면
+npm list -g --depth=0
+```
+
+### 업데이트
+
+```bash
+# -g를 안붙이면 현재 디렉토리만, -g는 컴퓨터 전체
+npm update -g (패키지명)
+```
+
+### 삭제
+
+```bash
+npm uninstall -g (패키지명)
+```
+
+동영상 - <https://opentutorials.org/module/4044>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[linux alias]]></title>
+        <id>http://localhost:8080/post/2019-06-11-alias/</id>
+        <link href="http://localhost:8080/post/2019-06-11-alias/"/>
+        <updated>2019-06-11T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+## .bashrc쉘에 등록
+
+alias는 터미널을 껐다가 키면 사라지는데 영구히 저장하고 싶다면 .bashrc쉘에 등록해줘야 한다.
+
+```sh
+# home디렉토리의 .bashrc쉘 열기($HOME/.bashrc)
+# 난 root계정으로 실행했으므로
+vim /root/.bashrc
+
+# 빈 자리에다가 alias등록
+alias ll='ls -al'
+```
+
+참고 : <https://movenpick.tistory.com/26>
+
+@TODO 사용자 계정으로도 만들어서 테스트해보자]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[tomcat https apply]]></title>
+        <id>http://localhost:8080/post/2019-06-11-tomcat-https/</id>
+        <link href="http://localhost:8080/post/2019-06-11-tomcat-https/"/>
+        <updated>2019-06-11T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+## SSL인증서 발급
+
+개인 인증서를 발급받아서 HTTPS통신을 하고자 한다.
+
+```bash
+# 개인키 생성
+openssl genrsa -des3 -out server.key 2048
+
+# 인증요청서 생성. (자신의 정보 입력)
+openssl req -new -key server.key -out server.csr
+
+# (선택) 개인키에서 패스워드 제거
+cp server.key server.key.origin
+openssl rsa -in server.key.origin -out server.key
+
+# 인증서 생성
+openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt
+# 여기까지 마치면 서버 인증서인 server.crt파일이 생성된다.
+```
+
+## SSl인증서를 발급받았으면 이제 톰캣에 맞는 형식으로 바꾸어 준다
+
+server.crt가 준비된 후 실행
+
+```bash
+# 인증서이름(server.crt), 인증서키이름(server.key)를 톰캣에 맞는 형식으로(.keystore) 바꿔줌.
+openssl pkcs12 -export -in server.crt -inkey server.key -out .keystore -name tomcat
+```
+
+## 톰캣 인증서를 생성했으면 server.xml에서 설정해줘야 한다
+
+```xml
+<Connector port="443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+    maxthreads="150" sslenabled="true" scheme="https" secure="true"
+    clientauth="false" sslprotocol="TLS"
+    keystorepass="인증서 비밀번호" keystorefile="인증서 위치"/>
+```
+
+## http로 접속 시 https로 자동 리다이렉트 설정
+
+```xml
+<!-- web.xml에 이 부분을 넣으면 된다는 데 제대로 되지 않아서 좀 더 알아봐야 겠다. -->
+
+<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>SSL Forward</web-resource-name>
+        <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+</security-constraint>
+```
+
+참고 :
+
+- <https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_%EC%9E%90%EC%B2%B4%EC%84%9C%EB%AA%85_SSL_%EC%9D%B8%EC%A6%9D%EC%84%9C_%EC%83%9D%EC%84%B1>
+- <https://namjackson.tistory.com/25>
+- <https://offbyone.tistory.com/262>
+
+@TODO 각각의 명령어가 무슨역할을 하는지 알아보자
+
+@TODO openssl패키지를 이용하여 개인키를 생성했는데 keytool로도 해보자
+
+@TODO http로 접속 시 https로 리다이렉트 되게 하는 법 알아보기
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[setting .vimrc]]></title>
+        <id>http://localhost:8080/post/2019-06-10-vimrc/</id>
+        <link href="http://localhost:8080/post/2019-06-10-vimrc/"/>
+        <updated>2019-06-11T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+## .vimrc경로
+
+/home/사용자폴더/.vimrc
+
+## 현재 내 설정
+
+```vim
+" Syntax Highlighting
+if has("syntax")
+    syntax on
+endif
+
+" 자동 들여쓰기
+set autoindent
+set cindent
+
+set nu " 줄 번호
+
+set ts=4 " Tab 너비
+
+set shiftwidth=4 " 자동 인덴트할 때 너비
+
+" 마지막으로 수정된 곳에 커서를 위치함
+au BufReadPost *
+\ if line("'\") > 0 && line ("'\") <= line("$") |
+\ exe "norm g' \" |
+\ endif
+
+set laststatus=2 " 상태바 표시를 항상한다.
+```
+
+## 리눅스에서는 각 사용자 폴더에다가 하면 되지만
+
+### window에서 .vimrc를 생성
+
+**C:\Users\사용자폴더**에 생성
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[git user setting]]></title>
+        <id>http://localhost:8080/post/2019-06-10-git/</id>
+        <link href="http://localhost:8080/post/2019-06-10-git/"/>
+        <updated>2019-06-10T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[
+## 전역 설정
+
+따로 설정하지 않았을 때 모든 프로젝트에서 동일하게 사용하는 유저 이름, 이메일
+
+```bash
+git config --global user.name "유저이름"
+git config --global user.email "유저이메일"
+```
+
+## 만약 프로젝트 마다 다른 계정을 사용하고 싶으면
+
+해당 프로젝트 폴더에 가서 --global 부분을 제거하고 입력하면 된다.
+
+```bash
+git config user.name "이 프로젝트에서만 쓰는 유저이름"
+git config user.email "이 프로젝트에서만 쓰는 유저이메일"
+```
+
+## 설정 확인하기
+
+각 프로젝트 폴더마다 다르게 나온다.
+
+```bash
+git config --list
+```
+]]></content>
+    </entry>
+</feed>
